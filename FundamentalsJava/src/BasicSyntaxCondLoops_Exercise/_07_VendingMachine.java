@@ -1,5 +1,6 @@
 package BasicSyntaxCondLoops_Exercise;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class _07_VendingMachine {
@@ -8,31 +9,34 @@ public class _07_VendingMachine {
 
 
         double priceOfItem = 0;
-        double Nuts = 2;
-        double Water = 0.7;
-        double Crisps = 1.5;
-        double Soda = 0.8;
-        double Coke = 1;
         double availableMoney = 0;
 
         String input = scanner.nextLine();
 
-        while (input != "Start") {
-            double money = Integer.parseInt(input);
+        while (!Objects.equals(input, "Start")) {
+            double money = Double.parseDouble(input);
 
             if (money == 0.1 || money == 0.2 || money ==  0.5 || money ==  1 || money == 2) {
 
                 availableMoney += money;
             } else {
                 System.out.printf("Cannot accept %.2f", money);
+                System.out.println();
             }
 
             input = scanner.nextLine();
         }
 
-        String input2 = scanner.nextLine();
+        String input2 = "";
 
-        while (input2 != "End") {
+
+        while (!input2.equals("End")) {
+
+            input2 = scanner.nextLine();
+
+            if (input2.equals("End")){
+                break;
+            }
 
             switch (input2) {
 
@@ -53,16 +57,18 @@ public class _07_VendingMachine {
                     break;
                 default:
                     System.out.println("Invalid product");
-                    break;
+                    continue;
+
 
             }
 
             if (availableMoney < priceOfItem) {
                 System.out.println("Sorry, not enough money");
-            } else {
+            } else if (availableMoney>= priceOfItem){
                 availableMoney -= priceOfItem;
-                System.out.printf("Purchased %s", input2);
+                System.out.printf("Purchased %s %n", input2);
             }
+
 
 
         }
