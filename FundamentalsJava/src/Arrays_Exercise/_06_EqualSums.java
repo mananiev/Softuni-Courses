@@ -12,25 +12,35 @@ public class _06_EqualSums {
                 .mapToInt(Integer:: parseInt)
                 .toArray();
 
-        int sumLeft = 0;
-        int sumRight = 0;
 
-        for (int i = 0; i < numArr.length; i++) {
+        boolean no = false;
 
-            for (int j = i-1; j <= i  ; j++) {
+        for (int i = 0; i <= numArr.length -1; i++) {
+            int sumLeft = 0;
+            int sumRight = 0;
+
+            for (int j = 0; j <= i -1  ; j++) {
                 sumLeft += numArr[j];
 
             }
 
-            for (int k = i +1 ; k < numArr.length ; k++) {
+            for (int k = i +1 ; k <= numArr.length -1 ; k++) {
                 sumRight += numArr[k];
 
             }
 
             if (sumLeft == sumRight ){
                 System.out.println(i);
-            }
+                no =false;
+                break;
+            } else {
+                no = true;
+                            }
 
+        }
+
+        if (no){
+            System.out.println("no");
         }
     }
 }
