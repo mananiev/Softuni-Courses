@@ -36,6 +36,12 @@ public class _03_MergingList {
 
         }
 
-        
+        if (firstList.size()> secondList.size()){
+            resultList.addAll(firstList.subList(minSize, firstList.size()));
+        } else {
+            resultList.addAll(secondList.subList(minSize, secondList.size()));
+        }
+
+        System.out.println(resultList.toString().replaceAll( "[\\[\\],]", ""));
     }
 }
