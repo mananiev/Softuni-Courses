@@ -83,5 +83,7 @@ public class _04_ListOperations {
         }
 
         System.out.println(numList.toString().replaceAll("[\\[\\],]", ""));
+
+        //blows last 2 checks in Judge, not sure why
     }
 }
