@@ -1,7 +1,4 @@
 package MidExamPrep;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class _01_BonusScoringSystem {
@@ -12,29 +9,25 @@ public class _01_BonusScoringSystem {
         int lecturesCount = Integer.parseInt(scanner.nextLine());
         int initialBonus = Integer.parseInt(scanner.nextLine());
 
-
-        List<Integer> lecturesAttended = new ArrayList<>();
-
-        double maxBonus = Double.MIN_VALUE;
-        int studentNumber = Integer.MIN_VALUE;
+        double maxBonus = 0;
+        int maxAttendance = 0;
 
         for (int i = 0; i < studentCount ; i++) {
-            int input = Integer.parseInt(scanner.nextLine());
-            lecturesAttended.add(i , input);
+                int attendance = Integer.parseInt(scanner.nextLine());
 
-            double totalBonus = (input *1.0)/ lecturesCount * (5 + initialBonus);
+                double totalBonus = attendance * 1.0 / lecturesCount * (5 + initialBonus);
 
 
-            if (totalBonus > maxBonus){
-                studentNumber = i;
-                maxBonus = totalBonus;
-            }
+                if (totalBonus > maxBonus) {
+                    maxAttendance = attendance;
+                    maxBonus = totalBonus;
+                }
 
 
         }
 
         System.out.printf("Max Bonus: %.0f.%n", Math.ceil(maxBonus));
-        System.out.printf("The student has attended %d lectures." , lecturesAttended.get(studentNumber));
+        System.out.printf("The student has attended %d lectures.", maxAttendance );
 
-    } //90/100 .. one check blows, not sure which one, Zero tests work
+    }
 }
