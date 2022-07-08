@@ -1,4 +1,4 @@
-package ObjectsAndClasses;
+package ObjectsAndClasses_Lab;
 
 import java.util.Scanner;
 

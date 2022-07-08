@@ -1,8 +1,7 @@
-package ObjectsAndClasses;
+package ObjectsAndClasses_Lab;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class _04_Songs {
